@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title> RPS Javascript</title>
+</head>
+<body>
+
+    <h1 id="player_name_display">??</h1>
+    <input type="text" id="player_name">
+      <a href= "#" id="player"> Enter Name </a>
+
+
+
+
+  <p> <a href = "#" id = "rock">rock</a> </p>
+  <p> <a href = "#" id = "paper">paper</a> </p>
+  <p> <a href = "#" id = "scissors">scissors</a> </p>
+  <h2 id="result"> </h2>
+
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="src/Player.js"></script>
+  <script src="src/Game.js"></script>
+
+  <script>
+  $(document).ready(function(){
+    game = new Game();
+    var computer = new Player("computer");
+    computer.randomChoice();
+    game.addPlayer(computer);
+    var humanPlayer;
+
+    $("#player").on("click", function(){
+      var name = $("#player_name").val();
+      humanPlayer = new Player(name);
+      $('#player_name_display').text(humanPlayer.playerName);
+      game.addPlayer(humanPlayer);
+    });
+
+
+    $("#rock").on("click", function(){
+      humanPlayer.chooseWeapon('rock');
+      $('#result').text(game.victoryMessage());
+
+    });
+
+
+    $("#paper").on("click", function(){
+      humanPlayer.chooseWeapon('paper');
+      $('#result').text(game.victoryMessage());
+
+    });
+
+    $("#scissors").on("click", function(){
+      humanPlayer.chooseWeapon('scissors');
+      $('#result').text(game.victoryMessage());
+
+    });
+
+
+
+
+  });
+
+  </script>
+</body>
+</html>
