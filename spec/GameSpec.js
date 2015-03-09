@@ -35,7 +35,7 @@ describe('Game', function() {
     game.addPlayer(player2);
     player.chooseWeapon("paper");
     player2.chooseWeapon("rock");
-    expect(game.winner()).toEqual("Frank");
+    expect(game.winner()).toEqual(player);
   });
 
   it ('knows who has won', function(){
@@ -43,7 +43,15 @@ describe('Game', function() {
     game.addPlayer(player2);
     player.chooseWeapon("paper");
     player2.chooseWeapon("scissors");
-    expect(game.winner()).toEqual("Betty");
+    expect(game.winner()).toEqual(player2);
+  });
+
+  it('displays a victory message', function(){
+    game.addPlayer(player);
+    game.addPlayer(player2);
+    player.chooseWeapon("paper");
+    player2.chooseWeapon("scissors");
+    expect(game.victoryMessage()).toEqual('Betty chose scissors and beats Frank who chose paper');
   });
 
 });
