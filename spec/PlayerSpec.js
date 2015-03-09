@@ -16,7 +16,8 @@ describe('Player', function() {
     expect(player.playerName).toEqual("Frank")
   });
 
-  it ('should only be able tos et the weapon to rck paper or scissors', function() {
+  xit ('should only be able to set the weapon to rock, paper or scissors', function() {
+
   });
 
 });
