@@ -38,4 +38,12 @@ describe('Game', function() {
     expect(game.winner()).toEqual("Frank");
   });
 
+  it ('knows who has won', function(){
+    game.addPlayer(player);
+    game.addPlayer(player2);
+    player.chooseWeapon("paper");
+    player2.chooseWeapon("scissors");
+    expect(game.winner()).toEqual("Betty");
+  });
+
 });

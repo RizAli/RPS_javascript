@@ -20,7 +20,9 @@ Game.prototype.playerCount = function() {
 };
 
 Game.prototype.winner = function() {
-  if (this.players[0].weapon === this.players[1].weapon)
-  {return "Draw";};
+  if (this.beater[this.players[0].weapon] === this.players[1].weapon) {return this.players[0].playerName;}
+  else if (this.players[0].weapon === this.players[1].weapon)
+  {return "Draw";}
+  else {return this.players[1].playerName;};
 
 };
